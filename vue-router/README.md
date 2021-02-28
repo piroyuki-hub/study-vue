@@ -23,4 +23,5 @@ yarn lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-![image](https://github.com/piroyuki-hub/study-vue/blob/main/vue-router/vue_router_image.png)
+### description
+![image](./vue_router_image.png)
