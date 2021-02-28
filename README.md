@@ -75,7 +75,7 @@ touch { component }
 </template>
 ```
 
-> modify src/main.js (for vue router)
+> modify @src/main.js (for vue router)
 
 ```javascript
 import Vue from 'vue'
@@ -90,7 +90,7 @@ new Vue({
 }).$mount('#app')
 ```
 
-> modify src/App.vue
+> modify @src/App.vue
 
 ```html
 <template>
