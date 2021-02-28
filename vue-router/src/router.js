@@ -1,14 +1,21 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Home from './views/Home.vue';
-import Users from './views/Users.vue';
+// import Home from './views/Home.vue';
+// import Users from './views/Users.vue';
+// import UsersPosts from './views/UsersPosts.vue';
+// import UsersProfile from './views/UsersProfile.vue';
+// import HeaderHome from './views/HeaderHome.vue';
+// import HeaderUsers from './views/HeaderUsers.vue';
 
-import UsersPosts from './views/UsersPosts.vue';
-import UsersProfile from './views/UsersProfile.vue';
-
-import HeaderHome from './views/HeaderHome.vue';
-import HeaderUsers from './views/HeaderUsers.vue';
+// 動的 import for webpack (遅延 loading)
+// header 要素に link 要素が生成される (prefetch = vue cli3 は全部取ってくる)
+const Home = () => import(/* webpackChunkName: "Home" */ './views/Home.vue');
+const Users = () => import(/* webpackChunkName: "Users" */ './views/Users.vue');
+const UsersPosts = () => import(/* webpackChunkName: "UsersPosts" */ './views/UsersPosts.vue');
+const UsersProfile = () => import(/* webpackChunkName: "UsersProfile" */ './views/UsersProfile.vue');
+const HeaderHome = () => import(/* webpackChunkName: "HeaderHome" */ './views/HeaderHome.vue');
+const HeaderUsers = () => import(/* webpackChunkName: "HeaderUsers" */ './views/HeaderUsers.vue');
 
 // plugin を使うお作法
 Vue.use(Router);
