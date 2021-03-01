@@ -1,10 +1,7 @@
 # study-vue
 study vue.js repo.
 
-
-# vue router
-
-## : initial
+# vue cli
 
 > create project
 
@@ -12,10 +9,18 @@ study vue.js repo.
 vue create vue-router
 ```
 
+> exec serve
+
+```
+yarn serve
+```
+
+# vue router
+
 > install vue-router
 
 ```
-cd vue-router
+cd { project }
 yarn add vue-router
 ```
 
@@ -100,8 +105,79 @@ new Vue({
 </template>
 ```
 
-> exec serve
+# vuex
+
+> install vuex
 
 ```
-yarn serve
+cd { project }
+yarn add vuex
+```
+
+> create store.js @src
+
+```
+cd src
+touch store.js
+```
+
+* store.js
+
+```javascript
+import Vue from 'vue';
+import Vuex from 'vuex';
+
+Vue.use(Vuex);
+
+export default new Vuex.Store({
+  state: {
+    count: 2
+  }
+});
+```
+> modify @src/main.js (for vuex)
+
+```javascript
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router';
+import store from './store';  // add
+
+Vue.config.productionTip = false
+
+new Vue({
+  router,
+  store,  // add
+  render: h => h(App),
+}).$mount('#app')
+```
+> modify @src/views/Home.vue
+
+```javascript
+<template>
+  <div>
+    <h3>Home</h3>
+    <button @click="toUsers">Users のページに行く</button>
+    <p>{{ count }}</p>  <!-- add -->
+  </div>
+</template>
+
+<script>
+export default {
+  // add
+  computed: {
+    count() {
+      return this.$store.state.count;
+    }
+  },
+  methods: {
+    toUsers() {
+      this.$router.push({
+        name: 'users-id-profile',
+        params: { id: 1 }
+      });
+    }
+  }
+}
+</script>
 ```
